@@ -35,7 +35,8 @@ jobs:
               '🇨🇿': 'Чехия', '🇮🇹': 'Италия', '🇪🇸': 'Испания',
               '🇨🇦': 'Канада', '🇧🇷': 'Бразилия', '🇦🇺': 'Австралия',
               '🇮🇳': 'Индия', '🇮🇱': 'Израиль', '🇪🇪': 'Эстония',
-              '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина', '🇪🇺': 'LTE/5G Все операторы',
+              '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина',
+              '🇪🇺': '',
           }
 
           def extract_flag(r):
@@ -53,14 +54,14 @@ jobs:
                   counters[flag] += 1
                   n = counters[flag]
                   if flag == '🌐' or flag == '🇪🇺':
-                      label = f"LTE/5G Все операторы 🌐"
+                      label = f"LTE/5G Все операторы"
                   else:
                       name = flag_names.get(flag, '')
-                      label = f"{flag} {name}".strip() if name else f"{flag}"
+                      label = f"{name}".strip() if name else f"{flag}"
                   result.append(f"{base}#{label}")
               else:
                   counters['🌐'] += 1
-                  result.append(f"{cfg}#🌐")
+                  result.append(f"{cfg}#LTE/5G Все операторы")
 
           header = f"""#profile-title: venreal
           #profile-update-interval: 12
