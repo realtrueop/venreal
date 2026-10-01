@@ -63,9 +63,7 @@ jobs:
                   result.append(f"{cfg}#{counters['🌐']}. 🌐")
 
           header = f"""#profile-title: venreal
-          #announce: 🔥 Серверов: {len(result)} | мулловский впн | ⚡ Белые списки
           #profile-update-interval: 12
-          #subscription-userinfo: upload=0; download=0; total=73667279060992; expire=1514005200
           """
           with open('venreal.txt', 'w', encoding='utf-8') as f:
               f.write(header)
