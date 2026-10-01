@@ -13,7 +13,7 @@ jobs:
 
       - name: Download and rebuild
         run: |
-          curl -sl "https://sub.vlessro.ru/vlessro/working_configs.txt" -o src.txt
+          curl -sl "https://sub.vlessfo.ru/vlessforu/working_configs.txt" -o src.txt
           python3 << 'PY'
           import re
           from urllib.parse import unquote
