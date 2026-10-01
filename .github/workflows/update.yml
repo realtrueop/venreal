@@ -36,7 +36,7 @@ jobs:
               '🇨🇦': 'Канада', '🇧🇷': 'Бразилия', '🇦🇺': 'Австралия',
               '🇮🇳': 'Индия', '🇮🇱': 'Израиль', '🇪🇪': 'Эстония',
               '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина',
-              '🇪🇺': '',
+              '🇪🇺': 'LTE/5G Все операторы',
           }
 
           def extract_flag(r):
@@ -53,7 +53,7 @@ jobs:
                   flag = extract_flag(decoded)
                   counters[flag] += 1
                   n = counters[flag]
-                  if flag == '🌐' or flag == '🇪🇺':
+                  if flag == '🌐':
                       label = f"LTE/5G Все операторы"
                   else:
                       name = flag_names.get(flag, '')
