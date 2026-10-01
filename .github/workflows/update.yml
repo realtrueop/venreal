@@ -36,7 +36,6 @@ jobs:
               '🇨🇦': 'Канада', '🇧🇷': 'Бразилия', '🇦🇺': 'Австралия',
               '🇮🇳': 'Индия', '🇮🇱': 'Израиль', '🇪🇪': 'Эстония',
               '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина',
-              '🇪🇺': 'LTE/5G Все операторы',
           }
 
           def extract_flag(r):
@@ -57,7 +56,7 @@ jobs:
                       label = f"LTE/5G Все операторы"
                   else:
                       name = flag_names.get(flag, '')
-                      label = f"{name}".strip() if name else f"{flag}"
+                      label = f"{flag} {name}".strip() if name else f"{flag}"
                   result.append(f"{base}#{label}")
               else:
                   counters['🌐'] += 1
