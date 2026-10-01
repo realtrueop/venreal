@@ -53,14 +53,14 @@ jobs:
                   counters[flag] += 1
                   n = counters[flag]
                   if flag == '🌐':
-                      label = f"{n}. LTE/5G Все операторы 🌐"
+                      label = f"LTE/5G Все операторы 🌐"
                   else:
                       name = flag_names.get(flag, '')
-                      label = f"{n}. {flag} {name}".strip() if name else f"{n}. {flag}"
+                      label = f"{flag} {name}".strip() if name else f"{flag}"
                   result.append(f"{base}#{label}")
               else:
                   counters['🌐'] += 1
-                  result.append(f"{cfg}#{counters['🌐']}. 🌐")
+                  result.append(f"{cfg}#🌐")
 
           header = f"""#profile-title: venreal
           #profile-update-interval: 12
