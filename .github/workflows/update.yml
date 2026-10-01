@@ -13,26 +13,29 @@ jobs:
 
       - name: Download and rebuild
         run: |
-          curl -sL "https://sub.vlessfo.ru/vlessforu/working_configs.txt" -o src.txt
+          curl -sl "https://sub.vlessro.ru/vlessro/working_configs.txt" -o src.txt
           python3 << 'PY'
           import re
           from urllib.parse import unquote
           from collections import defaultdict
 
-          with open('src.txt','r',encoding='utf-8',errors='replace') as f:
+          with open('src.txt', 'r', encoding='utf-8', errors='replace') as f:
               lines = f.readlines()
 
-          configs = [l.strip() for l in lines if l.strip().startswith(
-              ('vless://','vmess://','trojan://','ss://','hysteria2://','hy2://','tuic://'))]
+          configs = [l.strip() for l in lines if l.strip().startswith(('vless://','vmess://','trojan://','ss://','hysteria2://','hy2://'))]
 
           flag_re = re.compile(r'[\U0001F1E0-\U0001F1FF]{2}')
           flag_names = {
-              '🇵🇱':'Польша','🇩🇪':'Германия','🇫🇮':'Финляндия','🇺🇸':'США',
-              '🇷🇺':'Россия','🇦🇹':'Австрия','🇱🇹':'Литва','🇨🇿':'Чехия','🇳🇱':'Нидерланды',
-              '🇫🇷':'Франция','🇬🇧':'Великобритания','🇹🇷':'Турция','🇸🇪':'Швеция',
-              '🇮🇹':'Италия','🇪🇸':'Испания','🇨🇭':'Швейцария','🇭🇰':'Гонконг',
-              '🇹🇼':'Тайвань','🇱🇻':'Латвия','🇪🇪':'Эстония','🇳🇴':'Норвегия',
-              '🇨🇦':'Канада','🇸🇬':'Сингапур','🇺🇦':'Украина','🇮🇪':'Ирландия','🇧🇷':'Бразилия',
+              '🇷🇺': 'Россия', '🇩🇪': 'Германия', '🇳🇱': 'Нидерланды',
+              '🇺🇸': 'США', '🇫🇷': 'Франция', '🇬🇧': 'Великобритания',
+              '🇫🇮': 'Финляндия', '🇸🇪': 'Швеция', '🇹🇷': 'Турция',
+              '🇯🇵': 'Япония', '🇰🇷': 'Корея', '🇨🇳': 'Китай',
+              '🇭🇰': 'Гонконг', '🇸🇬': 'Сингапур', '🇦🇪': 'ОАЭ',
+              '🇨🇭': 'Швейцария', '🇦🇹': 'Австрия', '🇵🇱': 'Польша',
+              '🇨🇿': 'Чехия', '🇮🇹': 'Италия', '🇪🇸': 'Испания',
+              '🇨🇦': 'Канада', '🇧🇷': 'Бразилия', '🇦🇺': 'Австралия',
+              '🇮🇳': 'Индия', '🇮🇱': 'Израиль', '🇪🇪': 'Эстония',
+              '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина',
           }
 
           def extract_flag(r):
@@ -49,8 +52,8 @@ jobs:
                   flag = extract_flag(decoded)
                   counters[flag] += 1
                   n = counters[flag]
-                  if flag == '🇪🇺':
-                      label = f"{n}. LTE/5G Все операторы 🇪🇺"
+                  if flag == '🌐':
+                      label = f"{n}. LTE/5G Все операторы 🌐"
                   else:
                       name = flag_names.get(flag, '')
                       label = f"{n}. {flag} {name}".strip() if name else f"{n}. {flag}"
@@ -60,12 +63,11 @@ jobs:
                   result.append(f"{cfg}#{counters['🌐']}. 🌐")
 
           header = f"""#profile-title: venreal
-#announce: 🔥 Серверов: {len(result)} | мулловский впн | ⚡ Белые списки
-#profile-update-interval: 12
-#subscription-userinfo: upload=0; download=0; total=73667279060992; expire=151400523600
-
-"""
-          with open('venreal.txt','w',encoding='utf-8') as f:
+          #announce: 🔥 Серверов: {len(result)} | мулловский впн | ⚡ Белые списки
+          #profile-update-interval: 12
+          #subscription-userinfo: upload=0; download=0; total=73667279060992; expire=1514005200
+          """
+          with open('venreal.txt', 'w', encoding='utf-8') as f:
               f.write(header)
               f.write('\n'.join(result) + '\n')
           print(f'Updated: {len(result)} servers')
