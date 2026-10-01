@@ -1,7 +1,7 @@
 #profile-title: venreal
-#announce: ⚡ Белые списки ⚡
+#announce: 🔥 Серверов: 134 | мулловский впн | ⚡ Белые списки
 #profile-update-interval: 12
-#subscription-userinfo: upload=0; download=0; total=0
+#subscription-userinfo: upload=0; download=0; total=73667279060992; expire=151400523600
 
 vless://4314a583-3a39-45e1-883e-70bf570d252a@95.85.253.202:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=z-TKWOWgZLfzQ-wNdwXQqVwaUgCmbchM2Xtrk1NGynU&sni=pl0001.kubservice.icu#1. 🇵🇱 Польша
 vless://810686b4-2118-490b-9e3c-5efe3ebf17a6@31.70.64.90:443?encryption=none&type=xhttp&security=tls&sni=cdn-3123.spliceflowtech.com&fp=firefox&alpn=h2&path=/api&host=cdn-3123.spliceflowtech.com&mode=auto&extra=%7B%22xmux%22%3A%7B%22cMaxReuseTimes%22%3A%2264-128%22%2C%22maxConcurrency%22%3A%2216-32%22%2C%22hKeepAlivePeriod%22%3A0%2C%22hMaxRequestTimes%22%3A%22600-900%22%2C%22hMaxReusableSecs%22%3A%221800-3000%22%7D%2C%22noSSEHeader%22%3Afalse%2C%22noGRPCHeader%22%3Afalse%2C%22xPaddingBytes%22%3A%22100-1000%22%7D#1. 🇩🇪 Германия
@@ -106,7 +106,7 @@ vless://8344360f-0349-4784-a19f-33fd92e89389@172.93.167.45:443?security=tls&type
 vless://4bdeee92-97e8-414d-bef6-ec1d5e2ab73b@fra.loozerp.wiki:443?flow=xtls-rprx-vision&fp=chrome&pbk=bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk&security=reality&sid=ff776ff77be48b88&type=tcp#4. 🇫🇷 Франция
 vless://d4cae7df-50a1-428c-bd62-881c8f3bbd90@slowkd.sadiepinki.com:443?Telegram=@GozargahAzad,@GozargahAzad,@GozargahAzad,@GozargahAzad,@GozargahAzad,@GozargahAzad,@GozargahAzad&security=reality&encryption=none&pbk=z37XIezsPyfMgmdXyFd9qT4C4maDAs1OcRt-wfyrXVo&headerType=none&fp=chrome&spx=/&type=tcp&flow=xtls-rprx-vision&sni=&sid=9c2378562188c3cb#13. 🇳🇱 Нидерланды
 vless://26524cce-d514-4014-a426-365fb266a14d@31.56.197.149:443?encryption=none&host=qcswhj2.edge-cache.danfeng4.xyz&path=%2Fdanfeng-pw8lj2-nzliwt-h23l-978coeve&security=tls&sni=qcswhj2.edge-cache.danfeng4.xyz&type=ws&fp=android#1. 🇱🇻 Латвия
-vless://7668f678-faee-40cc-9b56-9c39dc773388@185.126.238.87:2083?encryption=none&security=none&fm=https://t.me/ShadowFlux2&type=grpc&authority=&serviceName=security.debian.org&mode=gun#1. 🇬🇷 Греция
+vless://7668f678-faee-40cc-9b56-9c39dc773388@185.126.238.87:2083?encryption=none&security=none&fm=https://t.me/ShadowFlux2&type=grpc&authority=&serviceName=security.debian.org&mode=gun#1. 🇬🇷
 vless://0dca2cfe-98eb-4f9d-9a47-cf87510c558b@93.188.185.80:443?type=grpc&security=tls&fp=firefox&sni=pli.g4m1.biz&serviceName=cdn.v1.PlService#8. 🇷🇺 Россия
 vless://4bdeee92-97e8-414d-bef6-ec1d5e2ab73b@31.76.84.174:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk&security=reality&sid=ff776ff77be48b88&sni=yaruss.stopingiphatered.shop&type=tcp#16. 🇺🇸 США
 vless://a368752a-32fc-42f3-980a-6b049218b23f@107.148.158.102:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=iOXJkurGWCpwU-Z1B3RPJnjXGSQ_v1-H5XtHa6mEeFc&sid=b1c1b5e2&sni=usa-2.letsconnectpoint.com&encryption=none#17. 🇺🇸 США
