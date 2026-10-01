@@ -1,0 +1,80 @@
+name: Update venreal
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and rebuild
+        run: |
+          curl -sL "https://sub.vlessfo.ru/vlessforu/working_configs.txt" -o src.txt
+          python3 << 'PY'
+          import re
+          from urllib.parse import unquote
+          from collections import defaultdict
+
+          with open('src.txt','r',encoding='utf-8',errors='replace') as f:
+              lines = f.readlines()
+
+          configs = [l.strip() for l in lines if l.strip().startswith(
+              ('vless://','vmess://','trojan://','ss://','hysteria2://','hy2://','tuic://'))]
+
+          flag_re = re.compile(r'[\U0001F1E0-\U0001F1FF]{2}')
+          flag_names = {
+              '🇵🇱':'Польша','🇩🇪':'Германия','🇫🇮':'Финляндия','🇺🇸':'США',
+              '🇷🇺':'Россия','🇦🇹':'Австрия','🇱🇹':'Литва','🇨🇿':'Чехия','🇳🇱':'Нидерланды',
+              '🇫🇷':'Франция','🇬🇧':'Великобритания','🇹🇷':'Турция','🇸🇪':'Швеция',
+              '🇮🇹':'Италия','🇪🇸':'Испания','🇨🇭':'Швейцария','🇭🇰':'Гонконг',
+              '🇹🇼':'Тайвань','🇱🇻':'Латвия','🇪🇪':'Эстония','🇳🇴':'Норвегия',
+              '🇨🇦':'Канада','🇸🇬':'Сингапур','🇺🇦':'Украина','🇮🇪':'Ирландия','🇧🇷':'Бразилия',
+          }
+
+          def extract_flag(r):
+              f = flag_re.findall(r)
+              return f[-1] if f else '🌐'
+
+          counters = defaultdict(int)
+          result = []
+          for cfg in configs:
+              if '#' in cfg:
+                  base, remark = cfg.rsplit('#', 1)
+                  try: decoded = unquote(remark)
+                  except: decoded = remark
+                  flag = extract_flag(decoded)
+                  counters[flag] += 1
+                  n = counters[flag]
+                  if flag == '🇪🇺':
+                      label = f"{n}. LTE/5G Все операторы 🇪🇺"
+                  else:
+                      name = flag_names.get(flag, '')
+                      label = f"{n}. {flag} {name}".strip() if name else f"{n}. {flag}"
+                  result.append(f"{base}#{label}")
+              else:
+                  counters['🌐'] += 1
+                  result.append(f"{cfg}#{counters['🌐']}. 🌐")
+
+          header = f"""#profile-title: venreal
+#announce: 🔥 Серверов: {len(result)} | мулловский впн | ⚡ Белые списки
+#profile-update-interval: 12
+#subscription-userinfo: upload=0; download=0; total=73667279060992; expire=151400523600
+
+"""
+          with open('venreal.txt','w',encoding='utf-8') as f:
+              f.write(header)
+              f.write('\n'.join(result) + '\n')
+          print(f'Updated: {len(result)} servers')
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add venreal.txt
+          git diff --staged --quiet || git commit -m "auto update"
+          git push
