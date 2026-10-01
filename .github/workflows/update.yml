@@ -54,20 +54,13 @@ jobs:
                   flag = extract_flag(decoded)
                   counters[flag] += 1
                   
-                  # Убираем все флаги из оригинального названия, чтобы не было дублей
-                  clean = decoded
-                  for f_match in flag_re.findall(clean):
-                      clean = clean.replace(f_match, '')
-                  clean = clean.strip()
-                  
                   name = flag_names.get(flag, '')
                   
-                  if flag == '🌐':
-                      label = f"LTE/5G Все операторы"
-                  elif clean:
-                      label = f"{flag} {clean}".strip()
+                  # Всегда берем название из списка flag_names, игнорируя оригинальное
+                  if flag == '🌐' or flag == '🇪🇺':
+                      label = f"{flag} LTE/5G Все операторы"
                   elif name:
-                      label = f"{flag} {name}".strip()
+                      label = f"{flag} {name}"
                   else:
                       label = f"{flag}"
                   
