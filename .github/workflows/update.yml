@@ -36,6 +36,7 @@ jobs:
               '🇨🇦': 'Канада', '🇧🇷': 'Бразилия', '🇦🇺': 'Австралия',
               '🇮🇳': 'Индия', '🇮🇱': 'Израиль', '🇪🇪': 'Эстония',
               '🇱🇻': 'Латвия', '🇱🇹': 'Литва', '🇺🇦': 'Украина',
+              '🇪🇺': 'LTE/5G Все операторы',
           }
 
           def extract_flag(r):
@@ -49,14 +50,27 @@ jobs:
                   base, remark = cfg.rsplit('#', 1)
                   try: decoded = unquote(remark)
                   except: decoded = remark
+                  
                   flag = extract_flag(decoded)
                   counters[flag] += 1
-                  n = counters[flag]
+                  
+                  # Убираем все флаги из оригинального названия, чтобы не было дублей
+                  clean = decoded
+                  for f_match in flag_re.findall(clean):
+                      clean = clean.replace(f_match, '')
+                  clean = clean.strip()
+                  
+                  name = flag_names.get(flag, '')
+                  
                   if flag == '🌐':
                       label = f"LTE/5G Все операторы"
+                  elif clean:
+                      label = f"{flag} {clean}".strip()
+                  elif name:
+                      label = f"{flag} {name}".strip()
                   else:
-                      name = flag_names.get(flag, '')
-                      label = f"{flag} {name}".strip() if name else f"{flag}"
+                      label = f"{flag}"
+                  
                   result.append(f"{base}#{label}")
               else:
                   counters['🌐'] += 1
