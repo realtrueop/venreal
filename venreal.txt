@@ -1,7 +1,7 @@
 #profile-title: venreal
 #announce: 🔥 Серверов: 224 | мулловский впн | ⚡ Белые списки
 #profile-update-interval: 12
-#subscription-userinfo: upload=0; download=0; total=732274744098816; expire=148174070400
+#subscription-userinfo: upload=0; download=0; total=732274744098816; expire=148165430400
 vless://38fdb074-9b55-44eb-87fd-b01bcc0f7f2b@178.95.155.156:753?encryption=none&fp=firefox&pbk=zYNnGVEkMFCUR_9NcYeaXfm9A_L-PP6iG2sIIST6S0M&security=reality&sid=1ed136481e0ede74&sni=eu85.vaultberry.cloud&type=tcp#🇵🇱 Польша
 vless://26524cce-d514-4014-a426-365fb266a14d@194.156.163.191:8462?encryption=none&security=tls&sni=qcswhj2.edge-cache.danfeng4.xyz&type=ws&path=%2Fdanfeng-pw8lj2-nzliwt-h23l-978coeve&host=qcswhj2.edge-cache.danfeng4.xyz&ed=2560&fp=qq#🇸🇬 Сингапур
 vless://4319f612-110f-4943-9555-7e3a29fa5289@nodeepolsh1.mekovpnhere.abrdns.com:443?type=tcp&headerType=none&security=reality&encryption=none&sni=nodeepolsh1.mekovpnhere.abrdns.com&fp=firefox&pbk=vHVEsKbVahlLvf9oJDIztzRikPL6utaxEwcnRkytWm0&sid=2bb8c86b393ddae8&flow=xtls-rprx-vision#🇵🇱 Польша
