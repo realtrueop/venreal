@@ -72,7 +72,7 @@ jobs:
           header = f"""#profile-title: venreal
           #announce: 🔥 Серверов: {len(result)} | мулловский впн | ⚡ Белые списки
           #profile-update-interval: 12
-          #subscription-userinfo: upload=0; download=0; total=732274744098816; expire=148174070400
+          #subscription-userinfo: upload=0; download=0; total=732274744098816; expire=148165430400
           """
           with open('venreal.txt', 'w', encoding='utf-8') as f:
               f.write(header)
